@@ -1,0 +1,15 @@
+[Unit]
+Description=amp monitor to switch amp on depending on audio out
+After=syslog.target
+
+[Service]
+Type=simple
+User=volumio
+Group=volumio
+EnvironmentFile=/home/volumio/code/amp_monitor/amp_monitor.conf
+ExecStart=/home/volumio/code/amp_monitor/amp_monitor.py $ARG1
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
